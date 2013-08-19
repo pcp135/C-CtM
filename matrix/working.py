@@ -7,6 +7,7 @@ from vecutil import *
 from solver import solve
 from math import pi
 import hw4
+import hw5
 from image_mat_util import *
 from geometry_lab import *
 
@@ -232,23 +233,32 @@ def MySolve(M,v):
 
 # HW5 - P2
 
-w0 = list2vec([0,one,0])
-w1 = list2vec([0,0,one])
-w2 = list2vec([one,one,one])
+# w0 = list2vec([0,one,0])
+# w1 = list2vec([0,0,one])
+# w2 = list2vec([one,one,one])
+# 
+# v0 = list2vec([one,0,one])
+# v1 = list2vec([one,0,0])
+# v2 = list2vec([one,one,0])
+# 
+# exchange_S0 = [w0, w1, w2]
+# print(exchange_S0)
+# ejection1 = hw4.exchange(exchange_S0+[v0], [v0, v1, v2], v0)
+# print(ejection1)
+# exchange_S1 = [w1,w2,v0]
+# ejection2 = hw4.exchange(exchange_S1+[v1], [v0, v1, v2], v1)
+# print(ejection2)
+# exchange_S2 = [w2,v0,v1]
+# ejection3 = hw4.exchange(exchange_S2+[v2], [v0, v1, v2], v2)
+# print(ejection3)
+# exchange_S3 = [v0, v1, v2]
 
-v0 = list2vec([one,0,one])
-v1 = list2vec([one,0,0])
-v2 = list2vec([one,one,0])
+# HW5 - P3
 
-exchange_S0 = [w0, w1, w2]
-print(exchange_S0)
-ejection1 = hw4.exchange(exchange_S0+[v0], [v0, v1, v2], v0)
-print(ejection1)
-exchange_S1 = [w1,w2,v0]
-ejection2 = hw4.exchange(exchange_S1+[v1], [v0, v1, v2], v1)
-print(ejection2)
-exchange_S2 = [w2,v0,v1]
-ejection3 = hw4.exchange(exchange_S2+[v2], [v0, v1, v2], v2)
-print(ejection3)
-exchange_S3 = [v0, v1, v2]
+S = [list2vec(v) for v in [[1,0,0],[0,1,0],[0,0,1]]]
+print(S)
+B = [list2vec(v) for v in [[1,1,0],[0,1,1],[1,0,1]]]
+print(hw5.morph(S, B)==[(Vec({0, 1, 2},{0: 1, 1: 1, 2: 0}), Vec({0, 1, 2},{0: 1, 1: 0, 2: 0})), (Vec({0, 1, 2},{0: 0, 1: 1, 2: 1}), Vec({0, 1, 2},{0: 0, 1: 1, 2: 0})), (Vec({0, 1, 2},{0: 1, 1: 0, 2: 1}), Vec({0, 1, 2},{0: 0, 1: 0, 2: 1}))])
+
+
 

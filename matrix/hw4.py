@@ -279,7 +279,7 @@ def exchange(S, A, z):
 				>>> exchange(S, A, z) == Vec({0, 1, 2, 3},{0: 0, 1: 0, 2: 1, 3: 0})
 				True
 		'''
-		T=S+[z]
+		T=S.copy()+[z]
 		for i in range(len(T)):
 			if is_superfluous(T,i) and T[i] != z and T[i] not in A:
 				return T[i]
