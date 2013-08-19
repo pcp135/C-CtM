@@ -210,13 +210,35 @@ def MySolve(M,v):
 
 # HW5 - P1
 
-w0 = list2vec([1,0,0])
-w1 = list2vec([0,1,0])
-w2 = list2vec([0,0,1])
+# w0 = list2vec([1,0,0])
+# w1 = list2vec([0,1,0])
+# w2 = list2vec([0,0,1])
+# 
+# v0 = list2vec([1,2,3])
+# v1 = list2vec([1,3,3])
+# v2 = list2vec([0,3,3])
+# 
+# exchange_S0 = [w0, w1, w2]
+# print(exchange_S0)
+# ejection1 = hw4.exchange(exchange_S0+[v0], [v0, v1, v2], v0)
+# print(ejection1)
+# exchange_S1 = [w1,w2,v0]
+# ejection2 = hw4.exchange(exchange_S1+[v1], [v0, v1, v2], v1)
+# print(ejection2)
+# exchange_S2 = [w2,v0,v1]
+# ejection3 = hw4.exchange(exchange_S2+[v2], [v0, v1, v2], v2)
+# print(ejection3)
+# exchange_S3 = [v0, v1, v2]
 
-v0 = list2vec([1,2,3])
-v1 = list2vec([1,3,3])
-v2 = list2vec([0,3,3])
+# HW5 - P2
+
+w0 = list2vec([0,one,0])
+w1 = list2vec([0,0,one])
+w2 = list2vec([one,one,one])
+
+v0 = list2vec([one,0,one])
+v1 = list2vec([one,0,0])
+v2 = list2vec([one,one,0])
 
 exchange_S0 = [w0, w1, w2]
 print(exchange_S0)
@@ -229,5 +251,4 @@ exchange_S2 = [w2,v0,v1]
 ejection3 = hw4.exchange(exchange_S2+[v2], [v0, v1, v2], v2)
 print(ejection3)
 exchange_S3 = [v0, v1, v2]
-
 

@@ -39,8 +39,8 @@ v1 = list2vec([one,0,0])
 v2 = list2vec([one,one,0])
 
 exchange_2_S0 = [w0, w1, w2]
-exchange_2_S1 = [...]
-exchange_2_S2 = [...]
+exchange_2_S1 = [w1,w2,v0]
+exchange_2_S2 = [w2,v0,v1]
 exchange_2_S3 = [v0, v1, v2]
 
 
