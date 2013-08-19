@@ -186,25 +186,48 @@ def MySolve(M,v):
 # print(hw4.exchange(S, A, z)==Vec({0, 1, 2, 3},{0: 0, 1: 0, 2: 1, 3: 0}))
 
 # Geometry Lab
-(pos,col)=file2mat('Tux-small.png')
-trans=translation(100,100)
-scal=scale(2,2)
-rot=rotation(pi/2)
-rot2=rotate_about(20,20,pi/2)
-refy=reflect_y()
-refx=reflect_x()
-print(rot)
+# (pos,col)=file2mat('Tux-small.png')
+# trans=translation(100,100)
+# scal=scale(2,2)
+# rot=rotation(pi/2)
+# rot2=rotate_about(20,20,pi/2)
+# refy=reflect_y()
+# refx=reflect_x()
+# print(rot)
 # pos=Vec({'x','y','u'}, {'x':1,'y':1,'u':1})
 # print(pos)
 # print(trans)
 # print(trans*pos)
 
-mat2display(pos,col)
-mat2display(trans*pos,col)
-mat2display(trans*scal*pos,col)
-mat2display(trans*rot*pos,col)
-mat2display(trans*rot2*pos,col)
-mat2display(trans*refy*pos,col)
-mat2display(trans*refx*pos,col)
+# mat2display(pos,col)
+# mat2display(trans*pos,col)
+# mat2display(trans*scal*pos,col)
+# mat2display(trans*rot*pos,col)
+# mat2display(trans*rot2*pos,col)
+# mat2display(trans*refy*pos,col)
+# mat2display(trans*refx*pos,col)
+
+
+# HW5 - P1
+
+w0 = list2vec([1,0,0])
+w1 = list2vec([0,1,0])
+w2 = list2vec([0,0,1])
+
+v0 = list2vec([1,2,3])
+v1 = list2vec([1,3,3])
+v2 = list2vec([0,3,3])
+
+exchange_S0 = [w0, w1, w2]
+print(exchange_S0)
+ejection1 = hw4.exchange(exchange_S0+[v0], [v0, v1, v2], v0)
+print(ejection1)
+exchange_S1 = [w1,w2,v0]
+ejection2 = hw4.exchange(exchange_S1+[v1], [v0, v1, v2], v1)
+print(ejection2)
+exchange_S2 = [w2,v0,v1]
+ejection3 = hw4.exchange(exchange_S2+[v2], [v0, v1, v2], v2)
+print(ejection3)
+exchange_S3 = [v0, v1, v2]
 
 
