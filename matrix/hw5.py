@@ -73,8 +73,16 @@ def morph(S, B):
 ## Problem 4
 # Please express each solution as a list of vectors (Vec instances)
 
-row_space_1 = [...]
-col_space_1 = [...]
+def findbasis(V):
+	while not hw4.is_independent(V):
+		for i in range(len(V)):
+			if hw4.is_superfluous(V,i):
+				V.remove(V[i])
+				break
+	return V
+
+row_space_1 = findbasis([list2vec(v) for v in [[1,2,0],[0,2,1]]])
+col_space_1 = findbasis([list2vec(v) for v in [[1,0],[2,2],[0,1]]])
 
 row_space_2 = [...]
 col_space_2 = [...]

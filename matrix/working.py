@@ -255,10 +255,19 @@ def MySolve(M,v):
 
 # HW5 - P3
 
-S = [list2vec(v) for v in [[1,0,0],[0,1,0],[0,0,1]]]
-print(S)
-B = [list2vec(v) for v in [[1,1,0],[0,1,1],[1,0,1]]]
-print(hw5.morph(S, B)==[(Vec({0, 1, 2},{0: 1, 1: 1, 2: 0}), Vec({0, 1, 2},{0: 1, 1: 0, 2: 0})), (Vec({0, 1, 2},{0: 0, 1: 1, 2: 1}), Vec({0, 1, 2},{0: 0, 1: 1, 2: 0})), (Vec({0, 1, 2},{0: 1, 1: 0, 2: 1}), Vec({0, 1, 2},{0: 0, 1: 0, 2: 1}))])
+# S = [list2vec(v) for v in [[1,0,0],[0,1,0],[0,0,1]]]
+# print(S)
+# B = [list2vec(v) for v in [[1,1,0],[0,1,1],[1,0,1]]]
+# print(hw5.morph(S, B)==[(Vec({0, 1, 2},{0: 1, 1: 1, 2: 0}), Vec({0, 1, 2},{0: 1, 1: 0, 2: 0})), (Vec({0, 1, 2},{0: 0, 1: 1, 2: 1}), Vec({0, 1, 2},{0: 0, 1: 1, 2: 0})), (Vec({0, 1, 2},{0: 1, 1: 0, 2: 1}), Vec({0, 1, 2},{0: 0, 1: 0, 2: 1}))])
 
+def findbasis(V):
+	while not hw4.is_independent(V):
+		for i in range(len(V)):
+			if hw4.is_superfluous(V,i):
+				V.remove(V[i])
+				break
+	return V
 
+[print(repr(v)) for v in findbasis([list2vec(v) for v in [[1,2,0],[0,2,1]]])]
+[print(repr(v)) for v in findbasis([list2vec(v) for v in [[1,0],[2,2],[0,1]]])]
 
