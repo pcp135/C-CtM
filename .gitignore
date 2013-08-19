@@ -1,3 +1,4 @@
 pw
 *.pyc
 *.DS_Store
+matrix/__pycache__
