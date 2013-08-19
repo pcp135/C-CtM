@@ -283,3 +283,7 @@ assert hw5.my_is_independent(L[1:4])==True
 assert hw5.my_is_independent(L[0:4])==False
 assert hw5.my_is_independent(L[2:])==False
 assert hw5.my_is_independent(L[2:5])==False
+
+# HW5 - P7
+
+assert hw5.my_rank([list2vec(v) for v in [[1,2,3],[4,5,6],[1.1,1.1,1.1]]])==2

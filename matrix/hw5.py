@@ -135,7 +135,7 @@ def subset_basis(T):
 		>>> subset_basis([a0,a1,a2,a3]) == [Vec({'c', 'b', 'a', 'd'},{'a': 1}), Vec({'c', 'b', 'a', 'd'},{'b': 1}), Vec({'c', 'b', 'a', 'd'},{'c': 1})]
 		True
 		'''
-		pass
+		return findbasis(T)
 
 
 
@@ -148,15 +148,36 @@ def my_rank(L):
 		>>> my_rank([list2vec(v) for v in [[1,2,3],[4,5,6],[1.1,1.1,1.1]]])
 		2
 		'''
-		pass
+		return len(subset_basis(L))
 
 
 ## Problem 8
 # Please give each answer as a boolean
 
-only_share_the_zero_vector_1 = ...
-only_share_the_zero_vector_2 = ...
-only_share_the_zero_vector_3 = ...
+u1=[one,0,one,0]
+u2=[0,0,one,0]
+v1=[0,one,0,one]
+v2=[0,0,0,one]
+urank=rank([list2vec(v) for v in [u1,u2]])
+vrank=rank([list2vec(v) for v in [v1,v2]])
+combinedrank=rank([list2vec(v) for v in [u1,u2,v1,v2]])
+only_share_the_zero_vector_1 = combinedrank==urank+vrank
+u1=[1,2,3]
+u2=[1,2,0]
+v1=[2,1,3]
+v2=[2,1,3]
+urank=my_rank([list2vec(v) for v in [u1,u2]])
+vrank=my_rank([list2vec(v) for v in [v1,v2]])
+combinedrank=my_rank([list2vec(v) for v in [u1,u2,v1,v2]])
+only_share_the_zero_vector_2 = combinedrank==urank+vrank
+u1=[2,0,8,0]
+u2=[1,1,4,0]
+v1=[2,1,1,1]
+v2=[0,1,1,1]
+urank=my_rank([list2vec(v) for v in [u1,u2]])
+vrank=my_rank([list2vec(v) for v in [v1,v2]])
+combinedrank=my_rank([list2vec(v) for v in [u1,u2,v1,v2]])
+only_share_the_zero_vector_3 = combinedrank==urank+vrank
 
 
 
