@@ -42,6 +42,9 @@ def mat2rowdict(A):
 	 """
   return {row:Vec(A.D[1], {col:A[row,col] for col in A.D[1]}) for row in A.D[0]}
 
+def mat2rowlist(A):
+  return [Vec(A.D[1], {col:A[row,col] for col in A.D[1]}) for row in A.D[0]]
+
 def mat2coldict(A):
   """Given a matrix, return a dictionary mapping column labels of A to columns of A
 	 e.g.:
@@ -52,6 +55,9 @@ def mat2coldict(A):
 	 {0: Vec({0, 1},{0: 0, 1: 0}), 1: Vec({0, 1},{0: 0, 1: 0})}
   """
   return {col:Vec(A.D[0], {row:A[row,col] for row in A.D[0]}) for col in A.D[1]}
+
+def mat2collist(A):
+  return [Vec(A.D[0], {row:A[row,col] for row in A.D[0]}) for col in A.D[1]]
 
 def coldict2mat(coldict):
     """

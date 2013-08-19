@@ -1,9 +1,9 @@
 # version code 941
 # Please fill out this stencil and submit using the provided submission script.
 
-from vecutil import list2vec
+from vecutil import list2vec, zero_vec
 from solver import solve
-from matutil import listlist2mat, coldict2mat
+from matutil import listlist2mat, coldict2mat, rowdict2mat, mat2collist
 from mat import Mat
 from GF2 import one
 from vec import Vec
@@ -196,7 +196,12 @@ def direct_sum_decompose(U_basis, V_basis, w):
 		>>> direct_sum_decompose(U_basis, V_basis, w) == (Vec({0, 1, 2, 3, 4, 5},{0: 2.0, 1: 4.999999999999972, 2: 0.0, 3: 0.0, 4: 1.0, 5: 0.0}), Vec({0, 1, 2, 3, 4, 5},{0: 0.0, 1: 0.0, 2: 0.0, 3: 0.0, 4: 0.0, 5: 0.0}))
 		True
 		'''
-		pass
+		M = rowdict2mat(U_basis+V_basis)
+		solution=solve(M.transpose(),w)
+		zero=[zero_vec(U_basis[0].D)]
+		uvec=solution*rowdict2mat(U_basis+zero*len(V_basis))
+		vvec=solution*rowdict2mat(zero*len(U_basis)+V_basis)
+		return (uvec,vvec)
 
 
 
@@ -210,7 +215,7 @@ def is_invertible(M):
 		>>> is_invertible(M)
 		True
 		'''
-		pass
+		return rank(mat2collist(M))==len(mat2collist(M))
 
 
 ## Problem 11
