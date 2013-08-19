@@ -23,8 +23,8 @@ v2 = list2vec([0,3,3])
 # with appropriate lists of 3 vectors
 
 exchange_S0 = [w0, w1, w2]
-exchange_S1 = [...]
-exchange_S2 = [...]
+exchange_S1 = [w1,w2,v0]
+exchange_S2 = [w2,v0,v1]
 exchange_S3 = [v0, v1, v2]
 
 
