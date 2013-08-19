@@ -84,14 +84,14 @@ def findbasis(V):
 row_space_1 = findbasis([list2vec(v) for v in [[1,2,0],[0,2,1]]])
 col_space_1 = findbasis([list2vec(v) for v in [[1,0],[2,2],[0,1]]])
 
-row_space_2 = [...]
-col_space_2 = [...]
+row_space_2 = findbasis([list2vec(v) for v in [[1,4,0,0],[0,2,2,0],[0,0,1,1]]])
+col_space_2 = findbasis([list2vec(v) for v in [[1,0,0],[4,2,0],[0,2,1],[0,0,1]]])
 
-row_space_3 = [...]
-col_space_3 = [...]
+row_space_3 = findbasis([list2vec(v) for v in [[1],[2],[3]]])
+col_space_3 = findbasis([list2vec(v) for v in [[1,2,3]]])
 
-row_space_4 = [...]
-col_space_4 = [...]
+row_space_4 = findbasis([list2vec(v) for v in [[1,0],[2,1],[3,4]]])
+col_space_4 = findbasis([list2vec(v) for v in [[1,2,3],[0,1,4]]])
 
 
 
