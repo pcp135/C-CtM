@@ -268,6 +268,18 @@ def findbasis(V):
 				break
 	return V
 
-[print(repr(v)) for v in findbasis([list2vec(v) for v in [[1,2,0],[0,2,1]]])]
-[print(repr(v)) for v in findbasis([list2vec(v) for v in [[1,0],[2,2],[0,1]]])]
+# HW5 - P4
 
+# [print(repr(v)) for v in findbasis([list2vec(v) for v in [[1,2,0],[0,2,1]]])]
+# [print(repr(v)) for v in findbasis([list2vec(v) for v in [[1,0],[2,2],[0,1]]])]
+
+# HW5 - P5
+
+L = [Vec({0, 1, 2},{0: 1, 1: 0, 2: 0}), Vec({0, 1, 2},{0: 0, 1: 1, 2: 0}), Vec({0, 1, 2},{0: 0, 1: 0, 2: 1}), Vec({0, 1, 2},{0: 1, 1: 1, 2: 1}), Vec({0, 1, 2},{0: 1, 1: 1, 2: 0}), Vec({0, 1, 2},{0: 0, 1: 1, 2: 1})]
+assert hw5.my_is_independent(L)==False
+assert hw5.my_is_independent(L[:2])==True
+assert hw5.my_is_independent(L[:3])==True
+assert hw5.my_is_independent(L[1:4])==True
+assert hw5.my_is_independent(L[0:4])==False
+assert hw5.my_is_independent(L[2:])==False
+assert hw5.my_is_independent(L[2:5])==False

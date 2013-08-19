@@ -8,6 +8,7 @@ from mat import Mat
 from GF2 import one
 from vec import Vec
 import hw4
+from independence import rank
 
 
 ## Problem 1
@@ -117,7 +118,7 @@ def my_is_independent(L):
 		>>> my_is_independent(L[2:5])
 		False
 		'''
-		pass
+		return len(L)==rank(L)
 
 
 ## Problem 6
