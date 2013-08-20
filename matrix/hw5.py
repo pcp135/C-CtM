@@ -3,12 +3,13 @@
 
 from vecutil import list2vec, zero_vec
 from solver import solve
-from matutil import listlist2mat, coldict2mat, rowdict2mat, mat2collist
+from matutil import listlist2mat, coldict2mat, rowdict2mat, mat2collist, mat2rowdict
 from mat import Mat
 from GF2 import one
 from vec import Vec
 import hw4
 from independence import rank
+from triangular import triangular_solve
 
 
 ## Problem 1
@@ -241,4 +242,8 @@ def find_triangular_matrix_inverse(A):
 		>>> find_triangular_matrix_inverse(A) == Mat(({0, 1, 2, 3}, {0, 1, 2, 3}), {(0, 1): -0.5, (1, 2): -0.3, (3, 2): 0.0, (0, 0): 1.0, (3, 3): 1.0, (3, 0): 0.0, (3, 1): 0.0, (2, 1): 0.0, (0, 2): -0.05000000000000002, (2, 0): 0.0, (1, 3): -0.87, (2, 3): -0.1, (2, 2): 1.0, (1, 0): 0.0, (0, 3): -3.545, (1, 1): 1.0})
 		True
 		'''
-		pass
+		(v,k)=(list(mat2rowdict(A).values()),list(mat2rowdict(A).keys()))
+		return coldict2mat([triangular_solve(v,k,Vec(A.D[1], {e:1})) for e in A.D[1]])
+
+
+
