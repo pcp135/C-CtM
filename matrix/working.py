@@ -10,6 +10,7 @@ import hw4
 import hw5
 from image_mat_util import *
 from geometry_lab import *
+from perspective_lab import *
 
 def MySolve(M,v):
 	print("Matrix: %s\nVec: %s\n solution:%s\ns*M=%s\nCheck:%s" % (M,v,solve(M,v),M*solve(M,v),M*solve(M,v)-v))
@@ -309,6 +310,14 @@ assert hw5.find_matrix_inverse(M) == Mat(({0, 1, 2}, {0, 1, 2}), {(0, 1): one, (
 
 A = listlist2mat([[1, .5, .2, 4],[0, 1, .3, .9],[0,0,1,.1],[0,0,0,1]])
 assert hw5.find_triangular_matrix_inverse(A) == Mat(({0, 1, 2, 3}, {0, 1, 2, 3}), {(0, 1): -0.5, (1, 2): -0.3, (3, 2): 0.0, (0, 0): 1.0, (3, 3): 1.0, (3, 0): 0.0, (3, 1): 0.0, (2, 1): 0.0, (0, 2): -0.05000000000000002, (2, 0): 0.0, (1, 3): -0.87, (2, 3): -0.1, (2, 2): 1.0, (1, 0): 0.0, (0, 3): -3.545, (1, 1): 1.0})
+
+# Perspective Lab
+
+(X_pts, colors) = file2mat('board.png', ('x1','x2','x3'))
+Y_pts = H * X_pts
+Y_board=mat_move2board(Y_pts)
+mat2display(Y_board, colors, ('y1', 'y2', 'y3'),scale=100, xmin=None, ymin=None)
+
 
 
 
