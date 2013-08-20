@@ -228,7 +228,7 @@ def find_matrix_inverse(A):
 		>>> find_matrix_inverse(M) == Mat(({0, 1, 2}, {0, 1, 2}), {(0, 1): one, (2, 0): 0, (0, 0): 0, (2, 2): one, (1, 0): one, (1, 2): 0, (1, 1): 0, (2, 1): 0, (0, 2): 0})
 		True
 		'''
-		pass
+		return coldict2mat([solve(A,Vec(A.D[1], {e:one})) for e in A.D[1]])
 
 
 
