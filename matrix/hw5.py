@@ -215,7 +215,7 @@ def is_invertible(M):
 		>>> is_invertible(M)
 		True
 		'''
-		return rank(mat2collist(M))==len(mat2collist(M))
+		return len(M.D[0])==len(M.D[1]) and rank(mat2collist(M))==len(mat2collist(M))
 
 
 ## Problem 11
