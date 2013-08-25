@@ -9,46 +9,59 @@ from GF2 import one
 ## Problem 1
 # Write each matrix as a list of row lists
 
-echelon_form_1 = [[   ...   ],
-                  [   ...   ],
-                  [   ...   ],
-                  [   ...   ],
-                  [   ...   ]]
+echelon_form_1 = [[1,2,0,2,0],
+									[0,1,0,3,4],
+									[0,0,2,3,4],
+									[0,0,0,2,0],
+									[0,0,0,0,4]]
 
-echelon_form_2 = [[   ...   ],
-                  [   ...   ],
-                  [   ...   ],
-                  [   ...   ]]
+echelon_form_2 = [[0,4,3,4,4],
+									[0,0,4,2,0],
+									[0,0,0,0,1],
+									[0,0,0,0,0]]
 
-echelon_form_3 = [[   ...   ],
-                  [   ...   ],
-                  [   ...   ]]
+echelon_form_3 = [[1,0,0,1],
+									[0,0,0,1],
+									[0,0,0,0]]
 
-echelon_form_4 = [[   ...   ],
-                  [   ...   ],
-                  [   ...   ],
-                  [   ...   ]]
+echelon_form_4 = [[1,0,0,0],
+									[0,1,0,0],
+									[0,0,0,0],
+									[0,0,0,0]]
 
 
 
 ## Problem 2
 def is_echelon(A):
-    '''
-    Input:
-        - A: a list of row lists
-    Output:
-        - True if A is in echelon form
-        - False otherwise
-    Examples:
-        >>> is_echelon([[1,1,1],[0,1,1],[0,0,1]])
-        True
-        >>> is_echelon([[0,1,1],[0,1,0],[0,0,1]])
-        False
-    '''
-    pass
+		'''
+		Input:
+				- A: a list of row lists
+		Output:
+				- True if A is in echelon form
+				- False otherwise
+		Examples:
+				>>> is_echelon([[1,1,1],[0,1,1],[0,0,1]])
+				True
+				>>> is_echelon([[0,1,1],[0,1,0],[0,0,1]])
+				False
+		'''
+		longest = 0
+		B=A[:]
+		B.reverse()
+		for row in B:
+			if location_first_non_zero(row) <= longest:
+				return False
+			longest=location_first_non_zero(row)
+		return True
 
-
-
+def location_first_non_zero(x):
+	y=x[:]		
+	ans=len(y)
+	while y[0]==0:
+		ans-=1
+		y.pop(0)
+	return ans
+	
 ## Problem 3
 # Give each answer as a list
 
@@ -69,28 +82,28 @@ solving_with_echelon_form_b = ...
 
 ## Problem 5
 def echelon_solve(rowlist, label_list, b):
-    '''
-    Input:
-        - rowlist: a list of Vecs
-        - label_list: a list of labels establishing an order on the domain of
-                      Vecs in rowlist
-        - b: a vector (represented as a list)
-    Output:
-        - Vec x such that rowlist * x is b
-    >>> D = {'A','B','C','D','E'}
-    >>> U_rows = [Vec(D, {'A':one, 'E':one}), Vec(D, {'B':one, 'E':one}), Vec(D,{'C':one})] 
-    >>> b_list = [one,0,one]>>> cols = ['A', 'B', 'C', 'D', 'E']
-    >>> echelon_solve(U_rows, cols, b_list)
-    Vec({'B', 'C', 'A', 'D', 'E'},{'B': 0, 'C': one, 'A': one})
-    '''
-    pass
+		'''
+		Input:
+				- rowlist: a list of Vecs
+				- label_list: a list of labels establishing an order on the domain of
+											Vecs in rowlist
+				- b: a vector (represented as a list)
+		Output:
+				- Vec x such that rowlist * x is b
+		>>> D = {'A','B','C','D','E'}
+		>>> U_rows = [Vec(D, {'A':one, 'E':one}), Vec(D, {'B':one, 'E':one}), Vec(D,{'C':one})] 
+		>>> b_list = [one,0,one]>>> cols = ['A', 'B', 'C', 'D', 'E']
+		>>> echelon_solve(U_rows, cols, b_list)
+		Vec({'B', 'C', 'A', 'D', 'E'},{'B': 0, 'C': one, 'A': one})
+		'''
+		pass
 
 
 
 ## Problem 6
-rowlist = [ ... ]    # Provide as a list of Vec instances
+rowlist = [ ... ]		 # Provide as a list of Vec instances
 label_list = [ ... ] # Provide as a list
-b = [ ... ]          # Provide as a list
+b = [ ... ]					 # Provide as a list
 
 
 

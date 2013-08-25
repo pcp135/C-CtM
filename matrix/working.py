@@ -8,6 +8,7 @@ from solver import solve
 from math import pi
 import hw4
 import hw5
+import hw6
 from image_mat_util import *
 from geometry_lab import *
 from perspective_lab import *
@@ -313,10 +314,20 @@ assert hw5.find_triangular_matrix_inverse(A) == Mat(({0, 1, 2, 3}, {0, 1, 2, 3})
 
 # Perspective Lab
 
-(X_pts, colors) = file2mat('board.png', ('x1','x2','x3'))
-Y_pts = H * X_pts
-Y_board=mat_move2board(Y_pts)
-mat2display(Y_board, colors, ('y1', 'y2', 'y3'),scale=100, xmin=None, ymin=None)
+# (X_pts, colors) = file2mat('board.png', ('x1','x2','x3'))
+# Y_pts = H * X_pts
+# Y_board=mat_move2board(Y_pts)
+# mat2display(Y_board, colors, ('y1', 'y2', 'y3'),scale=100, xmin=None, ymin=None)
+
+#HW6 - P2
+
+assert hw6.is_echelon([[1,1,1],[0,1,1],[0,0,1]])==True
+assert hw6.is_echelon([[0,1,1],[0,1,0],[0,0,1]])==False
+assert hw6.is_echelon([[2,1,0],[0,-4,0],[0,0,1]])==True
+assert hw6.is_echelon([[2,1,0],[-4,0,0],[0,0,1]])==False
+assert hw6.is_echelon([[2,1,0],[0,3,0],[1,0,1]])==False
+assert hw6.is_echelon([[1,1,1,1,1],[0,2,0,1,3],[0,0,0,5,3]])==True
+
 
 
 
