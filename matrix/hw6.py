@@ -49,7 +49,7 @@ def is_echelon(A):
 		B=A[:]
 		B.reverse()
 		for row in B:
-			if location_first_non_zero(row) <= longest:
+			if location_first_non_zero(row) <= longest and longest!=0:
 				return False
 			longest=location_first_non_zero(row)
 		return True
@@ -60,6 +60,8 @@ def location_first_non_zero(x):
 	while y[0]==0:
 		ans-=1
 		y.pop(0)
+		if ans==0:
+			break
 	return ans
 	
 ## Problem 3

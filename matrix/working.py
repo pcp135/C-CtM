@@ -327,6 +327,13 @@ assert hw6.is_echelon([[2,1,0],[0,-4,0],[0,0,1]])==True
 assert hw6.is_echelon([[2,1,0],[-4,0,0],[0,0,1]])==False
 assert hw6.is_echelon([[2,1,0],[0,3,0],[1,0,1]])==False
 assert hw6.is_echelon([[1,1,1,1,1],[0,2,0,1,3],[0,0,0,5,3]])==True
+assert hw6.is_echelon([[0,0,0],[0,0,0],[0,0,0]])==True
+assert hw6.is_echelon([[1,0,0],[0,1,0],[0,1,0]])==False
+assert hw6.is_echelon([[0]*4,[1]*4])==False
+assert hw6.is_echelon([[1,0,0,0,0,0,0,0],[0,1,1,1,1,1,1,1],[0,0,1,1,1,0,1,0],[0,0,0,0,0,1,1,0]])==True
+assert hw6.is_echelon([[1]])==True
+assert hw6.is_echelon([[0]])==True
+
 
 
 
