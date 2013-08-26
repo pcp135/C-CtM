@@ -12,6 +12,7 @@ import hw6
 from image_mat_util import *
 from geometry_lab import *
 from perspective_lab import *
+from triangular import triangular_solve_n
 
 def MySolve(M,v):
 	print("Matrix: %s\nVec: %s\n solution:%s\ns*M=%s\nCheck:%s" % (M,v,solve(M,v),M*solve(M,v),M*solve(M,v)-v))
@@ -333,6 +334,32 @@ assert hw6.is_echelon([[0]*4,[1]*4])==False
 assert hw6.is_echelon([[1,0,0,0,0,0,0,0],[0,1,1,1,1,1,1,1],[0,0,1,1,1,0,1,0],[0,0,0,0,0,1,1,0]])==True
 assert hw6.is_echelon([[1]])==True
 assert hw6.is_echelon([[0]])==True
+
+#HW6 - P3
+
+# print(triangular_solve_n([list2vec([10,-3]),list2vec([0,1])], [1,3]))
+# print(listlist2mat([[10,2,-3,53],[0,0,1,2013]])*list2vec([1,0,3,0]))
+
+# print(triangular_solve_n([list2vec([2,1,3]),list2vec([0,5,3]),list2vec([0,0,1])], [1,-1,3]))
+# print(listlist2mat([[2,0,1,3],[0,0,5,3],[0,0,0,1]])*list2vec([-3,0,-2,3]))
+
+# print(triangular_solve_n([list2vec([2,4,2]),list2vec([0,-1,1]),list2vec([0,0,5])], [2,0,10]))
+# print(listlist2mat([[2,2,4,3,2],[0,0,-1,11,1],[0,0,0,0,5]])*list2vec([-5,0,2,0,2]))
+
+#HW6 - P4
+
+# print(triangular_solve_n([list2vec([1,-2]),list2vec([0,2])], [5,3]))
+# print(listlist2mat([[1,3,-2,1,0],[0,0,2,-3,0],[0,0,0,0,0]])*list2vec([8,0,1.5,0,0]))
+# 
+# print(triangular_solve_n([list2vec([1,-8]),list2vec([0,2])], [5,4]))
+# print(listlist2mat([[1,2,-8,-4,0],[0,0,2,12,0],[0,0,0,0,0],[0,0,0,0,0]])*list2vec([21,0,2,0,0]))
+
+#HW6 - P5
+D = {'A','B','C','D','E'}
+U_rows = [Vec(D, {'A':one, 'E':one}), Vec(D, {'B':one, 'E':one}), Vec(D,{'C':one})] 
+b_list = [one,0,one]
+cols = ['A', 'B', 'C', 'D', 'E']
+assert hw6.echelon_solve(U_rows, cols, b_list)==Vec(D,{'B': 0, 'C': one, 'A': one})
 
 
 
