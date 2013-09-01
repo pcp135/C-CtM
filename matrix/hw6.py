@@ -136,20 +136,20 @@ b=[one,one,0,0]
 #print(echsolve(A,g))
 
 ## Problem 7
-null_space_rows_a = {0} # Put the row numbers of M from the PDF
+null_space_rows_a = {3,4} # Put the row numbers of M from the PDF
 
 
 
 ## Problem 8
-null_space_rows_b = set()
+null_space_rows_b = {4}
 
 
 
 ## Problem 9
 # Write each vector as a list
-closest_vector_1 = [...]
-closest_vector_2 = [...]
-closest_vector_3 = [...]
+closest_vector_1 = [1.6,3.2]
+closest_vector_2 = [0,1,0]
+closest_vector_3 = [3,2,1,-4]
 
 
 

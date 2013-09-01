@@ -362,13 +362,13 @@ cols = ['A', 'B', 'C', 'D', 'E']
 assert hw6.echelon_solve(U_rows, cols, b_list)==Vec(D,{'B': 0, 'C': one, 'A': one})
 
 #HW6 - P7
-A = listlist2mat([[0,0,0,one,0],[0,0,0,one,one],[one,0,0,one,0],[one,0,0,0,one],[one,0,0,0,0]])
-M = listlist2mat([[0,0,one,0,0],[one,0,0,0,0],[one,one,0,0,0],[0,one,one,one,0],[one,0,one,0,one]])
-rows=mat2rowdict(M)
-for k,row in rows.items():
-	print("Row %s"%k)
-	print(repr(row))
-	print(row*A)
+# A = listlist2mat([[0,0,0,one,0],[0,0,0,one,one],[one,0,0,one,0],[one,0,0,0,one],[one,0,0,0,0]])
+# M = listlist2mat([[0,0,one,0,0],[one,0,0,0,0],[one,one,0,0,0],[0,one,one,one,0],[one,0,one,0,one]])
+# rows=mat2rowdict(M)
+# for k,row in rows.items():
+# 	print("Row %s"%k)
+# 	print(repr(row))
+# 	print(row*A)
 
 #HW6 - P8
 # A = listlist2mat([[0,0,0,one,0],[0,0,0,one,one],[one,0,0,one,0],[one,one,one,0,one],[one,0,0,one,0]])
@@ -377,7 +377,29 @@ for k,row in rows.items():
 # for k,row in rows.items():
 # 	print("Row %s"%k)
 # 	print(repr(row))
-# 	print(A*row)
+# 	print(row*A)
+	
+#HW6 - P9
+def project_along(b, a): 
+	return ((b*a)/(a*a) if a*a != 0 else 0)*a
+
+def project_orthogonal(b, a): 
+	return b - project_along(b, a)
+	
+A = list2vec([1,2])
+B = list2vec([2,3])
+print(project_along(B,A))
+print(((A*B)/(A*A))*A)
+
+A = list2vec([0,1,0])
+B = list2vec([1.414,1,1.732])
+print(project_along(B,A))
+print(((A*B)/(A*A))*A)
+
+A = list2vec([-3,-2,-1,4])
+B = list2vec([7,2,5,0])
+print(project_along(B,A))
+print(((A*B)/(A*A))*A)
 
 
 
