@@ -361,7 +361,23 @@ b_list = [one,0,one]
 cols = ['A', 'B', 'C', 'D', 'E']
 assert hw6.echelon_solve(U_rows, cols, b_list)==Vec(D,{'B': 0, 'C': one, 'A': one})
 
+#HW6 - P7
+A = listlist2mat([[0,0,0,one,0],[0,0,0,one,one],[one,0,0,one,0],[one,0,0,0,one],[one,0,0,0,0]])
+M = listlist2mat([[0,0,one,0,0],[one,0,0,0,0],[one,one,0,0,0],[0,one,one,one,0],[one,0,one,0,one]])
+rows=mat2rowdict(M)
+for k,row in rows.items():
+	print("Row %s"%k)
+	print(repr(row))
+	print(row*A)
 
+#HW6 - P8
+# A = listlist2mat([[0,0,0,one,0],[0,0,0,one,one],[one,0,0,one,0],[one,one,one,0,one],[one,0,0,one,0]])
+# M = listlist2mat([[0,0,one,0,0],[0,0,one,one,0],[one,0,0,0,0],[one,one,0,0,0],[0,0,one,0,one]])
+# rows=mat2rowdict(M)
+# for k,row in rows.items():
+# 	print("Row %s"%k)
+# 	print(repr(row))
+# 	print(A*row)
 
 
 

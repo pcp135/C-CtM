@@ -132,18 +132,16 @@ D={"A","B","C","D"}
 g=Vec({'a','b','c','d'},{"A":one,"C":one})
 # b=zero_vec({'a','b','c','d'})
 b=M*Vec({'a','b','c','d'},{"a":one,"c":one})
-print(b)
 b=[one,one,0,0]
-print(rowlist, label_list, b)
 #print(echsolve(A,g))
 
 ## Problem 7
-null_space_rows_a = {...} # Put the row numbers of M from the PDF
+null_space_rows_a = {0} # Put the row numbers of M from the PDF
 
 
 
 ## Problem 8
-null_space_rows_b = {...}
+null_space_rows_b = set()
 
 
 
