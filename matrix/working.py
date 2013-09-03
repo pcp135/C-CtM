@@ -14,6 +14,8 @@ from geometry_lab import *
 from perspective_lab import *
 from triangular import triangular_solve_n
 from secret_sharing_lab import *
+from factoring_lab import *
+from factoring_support import *
 
 def MySolve(M,v):
 	print("Matrix: %s\nVec: %s\n solution:%s\ns*M=%s\nCheck:%s" % (M,v,solve(M,v),M*solve(M,v),M*solve(M,v)-v))
@@ -424,10 +426,16 @@ v = list2vec([2,2,1])
 
 #Secret Sharing
 
-a0 = list2vec([one, one,	 0, one,	 0, one])
-b0 = list2vec([one, one,	 0,		0,	 0, one])
+# a0 = list2vec([one, one,	 0, one,	 0, one])
+# b0 = list2vec([one, one,	 0,		0,	 0, one])
+# 
+# st_combos = [(0,0),(0,one),(one,0),(one,one)]
+# for (s,t) in st_combos:
+# 	v=choose_secret_vector(s,t)
+# 	print(v*a0,v*b0,s,t)
 
-st_combos = [(0,0),(0,one),(one,0),(one,one)]
-for (s,t) in st_combos:
-	v=choose_secret_vector(s,t)
-	print(v*a0,v*b0,s,t)
+# Factoring Lab
+
+assert make_Vec({2,3,11}, [(2,3), (3,2)]) == Vec({2,3,11},{2:one})
+
+print(find_candidates(2419, primes(32)))

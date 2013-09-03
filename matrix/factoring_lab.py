@@ -41,7 +41,7 @@ def make_Vec(primeset, factors):
 				>>> make_Vec({2,3,11}, [(2,3), (3,2)]) == Vec({2,3,11},{2:one})
 				True
 		'''
-		pass
+		return Vec(primeset, {k:int2GF2(v) for (k,v) in factors})
 
 ## Task 3
 def find_candidates(N, primeset):
@@ -58,7 +58,15 @@ def find_candidates(N, primeset):
 									 primeset-vector over GF(2) corresponding to a_i
 					such that len(roots) = len(rowlist) and len(roots) > len(primeset)
 		'''
-		pass
+		roots, rowlist = [],[]
+		x = intsqrt(N)+2
+		while len(roots) <= len(primeset):
+			test=dumb_factor(x*x-N,primeset)
+			if len(test) > 0:
+				roots += [x]
+				rowlist += [make_Vec(primeset,test)]
+			x+=1
+		return (roots,rowlist)
 
 
 
