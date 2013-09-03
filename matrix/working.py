@@ -5,7 +5,7 @@ from GF2 import one
 from matutil import *
 from vecutil import *
 from solver import solve
-from math import pi
+from math import pi,sqrt
 import hw4
 import hw5
 import hw6
@@ -13,6 +13,7 @@ from image_mat_util import *
 from geometry_lab import *
 from perspective_lab import *
 from triangular import triangular_solve_n
+from secret_sharing_lab import *
 
 def MySolve(M,v):
 	print("Matrix: %s\nVec: %s\n solution:%s\ns*M=%s\nCheck:%s" % (M,v,solve(M,v),M*solve(M,v),M*solve(M,v)-v))
@@ -386,21 +387,47 @@ def project_along(b, a):
 def project_orthogonal(b, a): 
 	return b - project_along(b, a)
 	
-A = list2vec([1,2])
-B = list2vec([2,3])
-print(project_along(B,A))
-print(((A*B)/(A*A))*A)
+# A = list2vec([1,2])
+# B = list2vec([2,3])
+# print(project_along(B,A))
+# print(((A*B)/(A*A))*A)
+# 
+# A = list2vec([0,1,0])
+# B = list2vec([1.414,1,1.732])
+# print(project_along(B,A))
+# print(((A*B)/(A*A))*A)
+# 
+# A = list2vec([-3,-2,-1,4])
+# B = list2vec([7,2,5,0])
+# print(project_along(B,A))
+# print(((A*B)/(A*A))*A)
 
-A = list2vec([0,1,0])
-B = list2vec([1.414,1,1.732])
-print(project_along(B,A))
-print(((A*B)/(A*A))*A)
+#HW6 - P10
 
-A = list2vec([-3,-2,-1,4])
-B = list2vec([7,2,5,0])
-print(project_along(B,A))
-print(((A*B)/(A*A))*A)
+# A = list2vec([3,0])
+# B = list2vec([2,1])
+# print(list(project_along(B,A).f.values()))
+# print(project_orthogonal(B,A))
+# 
+# A = list2vec([1,2,-1])
+# B = list2vec([1,1,4])
+# print(project_along(B,A))
+# print(project_orthogonal(B,A))
+# 
+# A = list2vec([3,3,12])
+# B = list2vec([1,1,4])
+# print(project_along(B,A))
+# print(project_orthogonal(B,A))
 
+#HW6 - P11
+v = list2vec([2,2,1])
 
+#Secret Sharing
 
+a0 = list2vec([one, one,	 0, one,	 0, one])
+b0 = list2vec([one, one,	 0,		0,	 0, one])
 
+st_combos = [(0,0),(0,one),(one,0),(one,one)]
+for (s,t) in st_combos:
+	v=choose_secret_vector(s,t)
+	print(v*a0,v*b0,s,t)

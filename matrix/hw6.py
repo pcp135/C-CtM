@@ -6,6 +6,7 @@ from GF2 import one
 from vecutil import *
 import echelon
 from solver import solve
+from math import sqrt
 
 
 ## Problem 1
@@ -143,6 +144,11 @@ null_space_rows_a = {3,4} # Put the row numbers of M from the PDF
 ## Problem 8
 null_space_rows_b = {4}
 
+def project_along(b, a): 
+	return ((b*a)/(a*a) if a*a != 0 else 0)*a
+
+def project_orthogonal(b, a): 
+	return b - project_along(b, a)
 
 
 ## Problem 9
@@ -156,19 +162,28 @@ closest_vector_3 = [3,2,1,-4]
 ## Problem 10
 # Write each vector as a list
 
-project_onto_1 = [...]
-projection_orthogonal_1 = [...]
 
-project_onto_2 = [...]
-projection_orthogonal_2 = [...]
+A = list2vec([3,0])
+B = list2vec([2,1])
+project_onto_1 = list(project_along(B,A).f.values())
+projection_orthogonal_1 = list(project_orthogonal(B,A).f.values())
 
-project_onto_3 = [...]
-projection_orthogonal_3 = [...]
+A = list2vec([1,2,-1])
+B = list2vec([1,1,4])
+project_onto_2 = list(project_along(B,A).f.values())
+projection_orthogonal_2 = list(project_orthogonal(B,A).f.values())
+
+A = list2vec([3,3,12])
+B = list2vec([1,1,4])
+project_onto_3 = list(project_along(B,A).f.values())
+projection_orthogonal_3 = list(project_orthogonal(B,A).f.values())
 
 
 
 ## Problem 11
-norm1 = ...
-norm2 = ...
-norm3 = ...
+v = list2vec([2,2,1])
+norm1 = sqrt(v*v)
+v = list2vec([sqrt(2),sqrt(3),sqrt(5),sqrt(6)])
+norm2 = sqrt(v*v)
+norm3 = 1
 
