@@ -82,8 +82,25 @@ def find_a_and_b(v, roots, N):
 			such that a*a-b*b is a multiple of N
 			(if v is correctly chosen)
 		'''
-		pass
+		alist = [x for (k, x) in enumerate(roots) if v[k]==one]
+		a = prod(alist)
+		c = prod([x*x-N for x in alist])
+		b = intsqrt(c)
+		assert b*b==c
+		return (a,b)
+		
 
 ## Task 5
 
-smallest_nontrivial_divisor_of_2461799993978700679 = ... 
+N = 2461799993978700679
+primelist = primes(10000)
+roots,rowlist = find_candidates(N,primelist)
+M = echelon.transformation_rows(rowlist)
+
+for v in reversed(M):
+	a,b=find_a_and_b(v,roots,N)
+	ans = gcd(a-b,N)
+	if ans!=1:
+		print(ans)
+		smallest_nontrivial_divisor_of_2461799993978700679 = ans
+		break

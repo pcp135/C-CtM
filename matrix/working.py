@@ -16,6 +16,7 @@ from triangular import triangular_solve_n
 from secret_sharing_lab import *
 from factoring_lab import *
 from factoring_support import *
+from echelon import *
 
 def MySolve(M,v):
 	print("Matrix: %s\nVec: %s\n solution:%s\ns*M=%s\nCheck:%s" % (M,v,solve(M,v),M*solve(M,v),M*solve(M,v)-v))
@@ -437,5 +438,12 @@ v = list2vec([2,2,1])
 # Factoring Lab
 
 assert make_Vec({2,3,11}, [(2,3), (3,2)]) == Vec({2,3,11},{2:one})
+N=2419
+roots, rowlist = find_candidates(N, primes(32))
+print(roots,rowlist)
 
-print(find_candidates(2419, primes(32)))
+rowlist_input = rowlist[:]
+M = transformation_rows(rowlist_input)
+print(M)
+print(find_a_and_b(M[-1],roots,N))
+
