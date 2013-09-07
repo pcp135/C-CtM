@@ -9,6 +9,7 @@ from math import pi,sqrt
 import hw4
 import hw5
 import hw6
+import hw7
 from image_mat_util import *
 from geometry_lab import *
 from perspective_lab import *
@@ -437,13 +438,18 @@ v = list2vec([2,2,1])
 
 # Factoring Lab
 
-assert make_Vec({2,3,11}, [(2,3), (3,2)]) == Vec({2,3,11},{2:one})
-N=2419
-roots, rowlist = find_candidates(N, primes(32))
-print(roots,rowlist)
+# assert make_Vec({2,3,11}, [(2,3), (3,2)]) == Vec({2,3,11},{2:one})
+# N=2419
+# roots, rowlist = find_candidates(N, primes(32))
+# print(roots,rowlist)
+# 
+# rowlist_input = rowlist[:]
+# M = transformation_rows(rowlist_input)
+# print(M)
+# print(find_a_and_b(M[-1],roots,N))
 
-rowlist_input = rowlist[:]
-M = transformation_rows(rowlist_input)
-print(M)
-print(find_a_and_b(M[-1],roots,N))
+# HW7 - P1
 
+vlist = [list2vec([2,4,3,5,0]),list2vec([4,-2,-5,4,0]),list2vec([-8,14,21,-2,0]),list2vec([-1,-4,-4,0,0]),list2vec([-2, -18, -19, -6, 0]),list2vec([5, -3, 1, -5,2])]
+print(hw7.basis(vlist))
+print(hw7.subset_basis(vlist))

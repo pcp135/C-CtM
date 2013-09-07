@@ -92,15 +92,15 @@ def find_a_and_b(v, roots, N):
 
 ## Task 5
 
-N = 2461799993978700679
-primelist = primes(10000)
-roots,rowlist = find_candidates(N,primelist)
-M = echelon.transformation_rows(rowlist)
-
-for v in reversed(M):
-	a,b=find_a_and_b(v,roots,N)
-	ans = gcd(a-b,N)
-	if ans!=1:
-		print(ans)
-		smallest_nontrivial_divisor_of_2461799993978700679 = ans
-		break
+# N = 2461799993978700679
+# primelist = primes(10000)
+# roots,rowlist = find_candidates(N,primelist)
+# M = echelon.transformation_rows(rowlist)
+# 
+# for v in reversed(M):
+# 	a,b=find_a_and_b(v,roots,N)
+# 	ans = gcd(a-b,N)
+# 	if ans!=1:
+# 		print(ans)
+# 		smallest_nontrivial_divisor_of_2461799993978700679 = ans
+# 		break

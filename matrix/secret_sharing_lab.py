@@ -40,19 +40,19 @@ def is_independent_set(v):
 			return False
 	return True
 
-in_vecs=independent_vectors()
-print(in_vecs)
-
-## Problem 2
-# Give each vector as a Vec instance
-secret_a0 = in_vecs[0][0]
-secret_b0 = in_vecs[0][1]
-secret_a1 = in_vecs[1][0]
-secret_b1 = in_vecs[1][1]
-secret_a2 = in_vecs[2][0]
-secret_b2 = in_vecs[2][1]
-secret_a3 = in_vecs[3][0]
-secret_b3 = in_vecs[3][1]
-secret_a4 = in_vecs[4][0]
-secret_b4 = in_vecs[4][1]
+# in_vecs=independent_vectors()
+# print(in_vecs)
+# 
+# ## Problem 2
+# # Give each vector as a Vec instance
+# secret_a0 = in_vecs[0][0]
+# secret_b0 = in_vecs[0][1]
+# secret_a1 = in_vecs[1][0]
+# secret_b1 = in_vecs[1][1]
+# secret_a2 = in_vecs[2][0]
+# secret_b2 = in_vecs[2][1]
+# secret_a3 = in_vecs[3][0]
+# secret_b3 = in_vecs[3][1]
+# secret_a4 = in_vecs[4][0]
+# secret_b4 = in_vecs[4][1]
 
