@@ -18,6 +18,7 @@ from secret_sharing_lab import *
 from factoring_lab import *
 from factoring_support import *
 from echelon import *
+from orthonormalization import *
 
 def MySolve(M,v):
 	print("Matrix: %s\nVec: %s\n solution:%s\ns*M=%s\nCheck:%s" % (M,v,solve(M,v),M*solve(M,v),M*solve(M,v)-v))
@@ -450,6 +451,37 @@ v = list2vec([2,2,1])
 
 # HW7 - P1
 
-vlist = [list2vec([2,4,3,5,0]),list2vec([4,-2,-5,4,0]),list2vec([-8,14,21,-2,0]),list2vec([-1,-4,-4,0,0]),list2vec([-2, -18, -19, -6, 0]),list2vec([5, -3, 1, -5,2])]
-print(hw7.basis(vlist))
-print(hw7.subset_basis(vlist))
+# vlist = [list2vec([2,4,3,5,0]),list2vec([4,-2,-5,4,0]),list2vec([-8,14,21,-2,0]),list2vec([-1,-4,-4,0,0]),list2vec([-2, -18, -19, -6, 0]),list2vec([5, -3, 1, -5,2])]
+# print(hw7.basis(vlist))
+# print(hw7.subset_basis(vlist))
+
+# HW7 - P3
+Q = listlist2mat([[1/sqrt(2), 1/sqrt(2), 0], [1/sqrt(3),-1/sqrt(3),1/sqrt(3)],[-1/sqrt(6),1/sqrt(6),2/sqrt(6)]])
+b = list2vec([10,20,30])
+# print(Q,b)
+# print(Q*b)
+
+#HW7 - P4
+a= list2vec([sqrt(2),1/sqrt(3),2/sqrt(6)])
+# print(a)
+# print(a*Q*Q)
+
+A = Mat(({0, 1, 2}, {0, 1, 2}), {(0, 1): 0, (1, 2): 0, (0, 0): 1, (2, 0): 0, (1, 0): 0, (2, 2): 1, (0, 2): 0, (2, 1): 0, (1, 1): 1})
+B = Mat(({0, 1, 2}, {0, 1, 2}), {(0, 1): 0, (1, 2): 0, (0, 0): 2, (2, 0): 0, (1, 0): 0, (2, 2): 2, (0, 2): 0, (2, 1): 0, (1, 1): 2})
+a = Vec({0, 1, 2},{0: 4, 1: 1, 2: 3})
+assert hw7.orthogonal_change_of_basis(A, B, a) == Vec({0, 1, 2},{0: 8, 1: 2, 2: 6})
+
+A = Mat(({0, 1, 2}, {0, 1, 2}), {(0, 1): 0, (1, 2): 0, (0, 0): 1, (2, 0): 0, (1, 0): 0, (2, 2): 1, (0, 2): 0, (2, 1): 0, (1, 1): 1})
+B = Mat(({0, 1, 2}, {0, 1, 2}), {(0, 1): 0, (1, 2): 0, (0, 0): 2, (2, 0): 0, (1, 0): 0, (2, 2): 2, (0, 2): 0, (2, 1): 0, (1, 1): 2})
+a = Vec({0, 1, 2},{0: 4, 1: 1, 2: 3})
+assert hw7.orthogonal_change_of_basis(A, B, a) == Vec({0, 1, 2},{0: 8, 1: 2, 2: 6})
+
+W = listlist2mat([[1/sqrt(2),1/sqrt(2),0],[1/sqrt(3),-1/sqrt(3),1/sqrt(3)]])
+W = Mat(({0, 1}, {0, 1, 2}), {(0, 1): 0, (1, 2): 0, (0, 0): 1, (1, 0): 0, (0, 2): 0, (1, 1): 1})
+b = Vec({0, 1, 2},{0: 3, 1: 1, 2: 4})
+assert hw7.orthonormal_projection_orthogonal(W, b) == Vec({0, 1, 2},{0: 0, 1: 0, 2: 4})
+
+#HW7 - P6
+A=[list2vec([4,3,1,2]),list2vec([8,9,-5,-5]), list2vec([10,1,-1,5])]
+Qlist,Rlist=aug_orthonormalize(A)
+assert coldict2mat(A)==coldict2mat(Qlist)*coldict2mat(Rlist)

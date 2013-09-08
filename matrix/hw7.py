@@ -1,12 +1,12 @@
 # version code 1049
 # Please fill out this stencil and submit using the provided submission script.
 
-from orthogonalization import orthogonalize
+from orthogonalization import *
 import orthonormalization
 from mat import Mat
 from vec import Vec
 from vecutil import list2vec
-from matutil import listlist2mat
+from matutil import *
 from math import sqrt
 
 def norm(v):
@@ -50,7 +50,7 @@ def orthogonal_vec2rep(Q, b):
 				>>> orthogonal_vec2rep(Q, b) == Vec({0, 1},{0: 8, 1: 4})
 				True
 		'''
-		pass
+		return(Q*b)
 
 
 
@@ -70,7 +70,7 @@ def orthogonal_change_of_basis(A, B, a):
 				>>> orthogonal_change_of_basis(A, B, a) == Vec({0, 1, 2},{0: 8, 1: 2, 2: 6})
 				True
 		'''
-		pass
+		return a*A*B
 
 
 
@@ -88,7 +88,7 @@ def orthonormal_projection_orthogonal(W, b):
 				>>> orthonormal_projection_orthogonal(W, b) == Vec({0, 1, 2},{0: 0, 1: 0, 2: 4})
 				True
 		'''
-		pass
+		return project_orthogonal(b,list(mat2rowdict(W).values()))
 
 
 
